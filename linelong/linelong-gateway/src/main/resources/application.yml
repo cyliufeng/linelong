@@ -1,0 +1,16 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: linelong-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    # 拉去其他服务时间10s
+    registry-fetch-interval-seconds: 10
+#配置路由前缀
+zuul:
+  prefix: /api
+  routes:
+    item-service: /item/** # 添加商品微服务的路由
